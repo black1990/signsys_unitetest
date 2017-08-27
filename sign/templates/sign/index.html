@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <style>
+        .errorlist {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="flex-center">
+    <div class="container">
+        <div class="flex-center">
+            <div class="unit-1-2 unit-1-on-mobile">
+                <h3>发布会管理
+                </h3>
+                <form class="form" action="{% url 'sign:login_action' %}" method="post">
+                    {% csrf_token %}
+                    <input name="username" type="text" placeholder="username"><br>
+                    <input name="password" type="password" placeholder="password"><br>
+                    <button type="submit" class="btn btn-primary btn-block">登录</button>
+                </form>
+                <hr>
+                {{ error }}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
